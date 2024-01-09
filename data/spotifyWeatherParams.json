@@ -1,0 +1,290 @@
+{
+    "Thunderstorm": {
+        "energy": {
+            "min_energy": 0.7,
+            "max_energy": 1.0,
+            "target_energy": 0.85
+        },
+        "danceability": {
+            "min_danceability": 0.5,
+            "max_danceability": 1.0,
+            "target_danceability": 0.75
+        },
+        "acousticness": {
+            "min_acousticness": 0.0,
+            "max_acousticness": 0.3,
+            "target_acousticness": 0.15
+        },
+        "valence": {
+            "min_valence": 0.4,
+            "max_valence": 0.6,
+            "target_valence": 0.5
+        },
+        "tempo": {
+            "min_tempo": 100,
+            "max_tempo": 180,
+            "target_tempo": 140
+        },
+        "loudness": {
+            "min_loudness": -10,
+            "max_loudness": 0,
+            "target_loudness": -5
+        }
+    },
+    "Drizzle": {
+        "energy": {
+            "min_energy": 0.2,
+            "max_energy": 0.5,
+            "target_energy": 0.35
+        },
+        "danceability": {
+            "min_danceability": 0.0,
+            "max_danceability": 0.4,
+            "target_danceability": 0.2
+        },
+        "acousticness": {
+            "min_acousticness": 0.6,
+            "max_acousticness": 1.0,
+            "target_acousticness": 0.8
+        },
+        "valence": {
+            "min_valence": 0.3,
+            "max_valence": 0.5,
+            "target_valence": 0.4
+        },
+        "tempo": {
+            "min_tempo": 60,
+            "max_tempo": 120,
+            "target_tempo": 90
+        },
+        "loudness": {
+            "min_loudness": -30,
+            "max_loudness": -10,
+            "target_loudness": -20
+        }
+    },
+    "Rain": {
+        "energy": {
+            "min_energy": 0.4,
+            "max_energy": 0.6,
+            "target_energy": 0.5
+        },
+        "danceability": {
+            "min_danceability": 0.3,
+            "max_danceability": 0.5,
+            "target_danceability": 0.4
+        },
+        "acousticness": {
+            "min_acousticness": 0.3,
+            "max_acousticness": 0.6,
+            "target_acousticness": 0.45
+        },
+        "valence": {
+            "min_valence": 0.4,
+            "max_valence": 0.6,
+            "target_valence": 0.5
+        },
+        "tempo": {
+            "min_tempo": 70,
+            "max_tempo": 130,
+            "target_tempo": 100
+        },
+        "loudness": {
+            "min_loudness": -25,
+            "max_loudness": -5,
+            "target_loudness": -15
+        }
+    },
+    "Clouds": {
+        "energy": {
+            "min_energy": 0.4,
+            "max_energy": 0.6,
+            "target_energy": 0.5
+        },
+        "danceability": {
+            "min_danceability": 0.4,
+            "max_danceability": 0.6,
+            "target_danceability": 0.5
+        },
+        "acousticness": {
+            "min_acousticness": 0.2,
+            "max_acousticness": 0.8,
+            "target_acousticness": 0.5
+        },
+        "valence": {
+            "min_valence": 0.4,
+            "max_valence": 0.6,
+            "target_valence": 0.5
+        },
+        "tempo": {
+            "min_tempo": 80,
+            "max_tempo": 140,
+            "target_tempo": 110
+        },
+        "loudness": {
+            "min_loudness": -20,
+            "max_loudness": -5,
+            "target_loudness": -12.5
+        }
+    },
+    "Snow": {
+        "energy": {
+            "min_energy": 0.0,
+            "max_energy": 0.4,
+            "target_energy": 0.2
+        },
+        "danceability": {
+            "min_danceability": 0.0,
+            "max_danceability": 0.4,
+            "target_danceability": 0.2
+        },
+        "acousticness": {
+            "min_acousticness": 0.7,
+            "max_acousticness": 1.0,
+            "target_acousticness": 0.85
+        },
+        "valence": {
+            "min_valence": 0.2,
+            "max_valence": 0.5,
+            "target_valence": 0.35
+        },
+        "tempo": {
+            "min_tempo": 50,
+            "max_tempo": 100,
+            "target_tempo": 75
+        },
+        "loudness": {
+            "min_loudness": -40,
+            "max_loudness": -20,
+            "target_loudness": -30
+        }
+    },
+    "Mist": {
+        "energy": {
+            "min_energy": 0.0,
+            "max_energy": 0.3,
+            "target_energy": 0.15
+        },
+        "danceability": {
+            "min_danceability": 0.0,
+            "max_danceability": 0.3,
+            "target_danceability": 0.15
+        },
+        "acousticness": {
+            "min_acousticness": 0.7,
+            "max_acousticness": 1.0,
+            "target_acousticness": 0.85
+        },
+        "valence": {
+            "min_valence": 0.0,
+            "max_valence": 0.3,
+            "target_valence": 0.15
+        },
+        "tempo": {
+            "min_tempo": 40,
+            "max_tempo": 90,
+            "target_tempo": 65
+        },
+        "loudness": {
+            "min_loudness": -40,
+            "max_loudness": -15,
+            "target_loudness": -27.5
+        }
+    },
+    "Haze": {
+        "energy": {
+            "min_energy": 0.0,
+            "max_energy": 0.3,
+            "target_energy": 0.15
+        },
+        "danceability": {
+            "min_danceability": 0.0,
+            "max_danceability": 0.3,
+            "target_danceability": 0.15
+        },
+        "acousticness": {
+            "min_acousticness": 0.7,
+            "max_acousticness": 1.0,
+            "target_acousticness": 0.85
+        },
+        "valence": {
+            "min_valence": 0.0,
+            "max_valence": 0.3,
+            "target_valence": 0.15
+        },
+        "tempo": {
+            "min_tempo": 40,
+            "max_tempo": 90,
+            "target_tempo": 65
+        },
+        "loudness": {
+            "min_loudness": -40,
+            "max_loudness": -15,
+            "target_loudness": -27.5
+        }
+    },
+    "Clear": {
+        "energy": {
+            "min_energy": 0.7,
+            "max_energy": 1.0,
+            "target_energy": 0.85
+        },
+        "danceability": {
+            "min_danceability": 0.7,
+            "max_danceability": 1.0,
+            "target_danceability": 0.85
+        },
+        "acousticness": {
+            "min_acousticness": 0.0,
+            "max_acousticness": 0.5,
+            "target_acousticness": 0.25
+        },
+        "valence": {
+            "min_valence": 0.7,
+            "max_valence": 1.0,
+            "target_valence": 0.85
+        },
+        "tempo": {
+            "min_tempo": 100,
+            "max_tempo": 180,
+            "target_tempo": 140
+        },
+        "loudness": {
+            "min_loudness": -10,
+            "max_loudness": 0,
+            "target_loudness": -5
+        }
+    },
+    "Default": {
+        "energy": {
+            "min_energy": 0.4,
+            "max_energy": 0.8,
+            "target_energy": 0.6
+        },
+        "danceability": {
+            "min_danceability": 0.0,
+            "max_danceability": 1.0,
+            "target_danceability": 0.5
+        },
+        "acousticness": {
+            "min_acousticness": 0.0,
+            "max_acousticness": 1.0,
+            "target_acousticness": 0.5
+        },
+        "valence": {
+            "min_valence": 0.0,
+            "max_valence": 1.0,
+            "target_valence": 0.5
+        },
+        "tempo": {
+            "min_tempo": 50,
+            "max_tempo": 200,
+            "target_tempo": 120
+        },
+        "loudness": {
+            "min_loudness": -60,
+            "max_loudness": 0,
+            "target_loudness": -30
+        }
+    }
+}
