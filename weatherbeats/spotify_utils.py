@@ -1,6 +1,7 @@
 import requests
 import json
 from django.conf import settings
+import random
 
 
 
@@ -35,16 +36,18 @@ def get_spotify_recommendations(weather_condition):
     params = get_spotify_weather_params(weather_condition)
     params['seed_artists'] = artist_id
     params['limit'] = 1
-    response = requests.get('http://api.spotify.com/v1/recommendations', headers=headers, params=params)
+    response = requests.get('https://api.spotify.com/v1/recommendations', headers=headers, params=params)
+    data = response.json()
 
-    return response.json()
+    if data['tracks']:
+        track = random.choice(data['tracks'])
+        song_details = {
+            'title': track['name'],
+            'artist': ','.join(artist['name'] for artist in track['artists']),
+            'album': track['album']['name'] if 'album' in track else 'N/A',
+            'release_year': track['album']['release_date'][:4] if 'album' in track else 'N/A'
+        }
 
-
-def test_spotify_connection():
-    token = get_spotify_token()
-    headers = {
-        'Authorization': f'Bearer {token}'
-    }
-    response = requests.get(f'https://api.spotify.com/v1/artists/{artist_id}/albums', headers=headers)
-
-    return response.json()
+        return song_details
+    else:
+        return None
