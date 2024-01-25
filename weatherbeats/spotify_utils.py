@@ -16,22 +16,24 @@ def get_spotify_weather_params(weather_condition):
     return weather_params.get(weather_condition, weather_params.get("Default"))
 
 
-def get_spotify_token():
+def get_spotify_token(authorization_code):
     auth_url = 'https://accounts.spotify.com/api/token'
-    auth_response = requests.post(auth_url, {
-        'grant_type': 'client_credentials',
+    payload = {
+        'grant_type': 'authorization_code',
+        'code': authorization_code,
+        'redirect_uri': settings.SPOTIFY_REDIRECT_URI,
         'client_id': settings.SPOTIFY_CLIENT_ID,
         'client_secret': settings.SPOTIFY_CLIENT_SECRET,
-    })
+    }
+    auth_response = requests.post(auth_url, data=payload)
     auth_response_data = auth_response.json()
 
-    return auth_response_data['access_token']
+    return auth_response_data.get('access_token')
 
 
-def get_spotify_recommendations(weather_condition):
-    token = get_spotify_token()
+def fetch_spotify_recommendation(weather_condition, access_token):
     headers = {
-        'Authorization': f'Bearer {token}'
+        'Authorization': f'Bearer {access_token}'
     }
     params = get_spotify_weather_params(weather_condition)
     params['seed_artists'] = artist_id
@@ -42,12 +44,12 @@ def get_spotify_recommendations(weather_condition):
     if data['tracks']:
         track = random.choice(data['tracks'])
         song_details = {
+            'id': track['id'],
             'title': track['name'],
             'artist': ','.join(artist['name'] for artist in track['artists']),
             'album': track['album']['name'] if 'album' in track else 'N/A',
             'release_year': track['album']['release_date'][:4] if 'album' in track else 'N/A'
         }
-
         return song_details
     else:
         return None

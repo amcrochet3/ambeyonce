@@ -24,7 +24,7 @@ urlpatterns = [
     path('index', views.index, name='index'),
     path('results', views.results, name='results'),
     path('spotify-connect/', views.spotify_connect, name='spotify_connect'),
-    path('get-weather/<str:zipcode>', views.get_weather_by_zipcode, name='get_weather_by_zipcode'),
+    path('spotify-callback/', views.spotify_callback, name='spotify_callback'),
     path('get-weather-by-coords/', views.get_weather_by_coords, name='get_weather_by_coords'),
     path('get-spotify-recommendation/', views.get_spotify_recommendation, name='get_spotify_recommendation'),
 ]

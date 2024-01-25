@@ -5,73 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmBeyoncé</title>
+    <link rel="stylesheet" href="https://use.typekit.net/czz1jkl.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
 </head>
 
 <body>
     <div class="container text-center mt-5">
-        <h1>AmBeyoncé</h1>
-        <p>Get a Beyoncé song recommendation-- or discover a song by a similar artist-- based on the current weather!
-        </p>
-        <div class="my-4">
-            <input type="text" id="zipcode" placeholder="Enter your ZIP code" class="form-control">
-            <button class="btn btn-primary mt-3" onclick="getWeather()">Get Song Recommendation</button>
-        </div>
-        <button class="btn btn-secondary" onclick="useGeolocation()">Use My Location</button>
+        <h2>AmBeyoncé</h1>
+            <p>Get a Beyoncé song recommendation-- or discover a song by a similar artist!-- based on the current
+                weather!
+            </p>
+            <button class="btn btn-primary" id="get-song-rec-btn" onclick="useGeolocation()">Get Song
+                Recommendation</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-        function getWeather() {
-            let zipcode = document.getElementById('zipcode').value;
-
-            if (zipcode) {
-                fetch(`/get-weather/${zipcode}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok.');
-                        }
-                        return response.json();
-                    })
-                    .then(weatherData => {
-                        return fetch(`/get-spotify-recommendation?weatherCondition=${weatherData.weather[0].main}`)
-                            .then(response => response.json())
-                            .then(songData => {
-                                window.location.href = `/results?weather=${encodeURIComponent(JSON.stringify(weatherData))}&song=${encodeURIComponent(JSON.stringify(songData))}`;
-                            });
-                    })
-                    .catch(error => {
-                        console.error('Unable to fetch data:', error);
-                    });
-            } else {
-                alert('Please enter your ZIP code.');
-            }
-        }
-
         function useGeolocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     let lat = position.coords.latitude;
                     let lon = position.coords.longitude;
 
-                    fetch(`/get-weather-by-coords?lat=${lat}&lon=${lon}`)
-                        .then(response => response.json())
-                        .then(weatherData => {
-                            let temperatureFahrenheit = (weatherData.temperature - 273.15) * 9 / 5 + 32;
-                            weatherData.temperature = temperatureFahrenheit.toFixed(0);
+                    $.get(`/get-weather-by-coords?lat=${lat}&lon=${lon}`, function (weatherData) {
+                        let temperatureFahrenheit = (weatherData.temperature - 273.15) * 9 / 5 + 32;
+                        weatherData.temperature = temperatureFahrenheit.toFixed(0);
 
-                            return fetch(`/get-spotify-recommendation?weatherCondition=${weatherData.condition}`)
-                                .then(response => response.json())
-                                .then(songData => {
-                                    window.location.href = `/results?weather=${JSON.stringify(weatherData)}&song=${JSON.stringify(songData)}`;
-                                });
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            alert('An error occurred while fetching data.');
+                        $.get(`/get-spotify-recommendation?weatherCondition=${weatherData.condition}`, function (songData) {
+                            window.location.href = `/results?weather=${encodeURIComponent(JSON.stringify(weatherData))}&song=${encodeURIComponent(JSON.stringify(songData))}`;
                         });
+                    }).fail(function (jqXHR, textStatus, error) {
+                        console.error('Error:', error);
+                        alert('An error occurred while fetching data.');
+                    });
                 }, function (error) {
                     alert('Error: ' + error.message);
                 });

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,39 +6,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AmBeyoncé</title>
+    <link rel="stylesheet" href="https://use.typekit.net/czz1jkl.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/results.css">
 </head>
 
-<body>
+<body id="results-body">
     <div class="container text-center mt-5">
-        <h1>Your Song Recommendation</h1>
+        <h2 class="mt-5">Your Song Recommendation</h2>
         <div id="result-content">
-            <p id="weather-condition">{{ weather.condition }}</p>
-            <img id="weather-symbol" src="{{ weather.symbol_path }}" alt="Weather Symbol">
+            <img id="weather-symbol" src="/static/img/weather-icons/{{ weather.condition }}.svg" alt="Weather Symbol"
+                height="100px" width="100px">
             <p id="temperature">{{ weather.temperature }} °F</p>
+            <p id="weather-condition">{{ weather.condition }}</p>
             <h3 id="song-title">{{ song.title }} by {{ song.artist }}</h3>
             <p id="artist-album">{{ song.album }} ({{ song.release_year }})</p>
-            <a href="#" class="btn btn-primary mt-4">Try Another</a>
+            <a href="#" class="btn btn-primary mt-4" id="try-another-btn">Try Another</a>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
         function updateWeatherUI(weatherData) {
-            document.getElementById('weather-condition').textContent = weatherData.condition;
-            document.getElementById('temperature').textContent = weatherData.temperature;
+            $('#weather-condition').text(weatherData.condition);
+            $('#temperature').text(weatherData.temperature);
         }
 
         function updateSongUI(songData) {
-            document.getElementById('song-title').textContent = songData.title;
+            $('#song-title').text(songData.title);
 
             let artistAlbumText = songData.artist;
 
             if (songData.album && songData.release_year) {
                 artistAlbumText += ` - ${songData.album} (${songData.release_year})`;
             }
-            document.getElementById('artist-album').textContent = artistAlbumText;
+            $('#artist-album').text(artistAlbumText);
         }
     </script>
 </body>
