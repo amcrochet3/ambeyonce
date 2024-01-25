@@ -9,8 +9,12 @@
 ## Usage
 
 Here's how you can enjoy AmBeyoncé:
-- **Get Weather Data**: Enter a city to retrieve its current weather conditions.
+- **Get Weather Data**: Activate geolocation to retrieve current weather conditions.
+  ![Screenshot 2024-01-25 153005](https://github.com/amcrochet3/ambeyonce/assets/123776329/624bc469-23f0-4a74-819a-f7fdc1d1608b)
+  
 - **Music Recommendations**: Based on the weather, get a curated list of songs or playlists from Spotify.
+  ![Screenshot 2024-01-25 154203](https://github.com/amcrochet3/ambeyonce/assets/123776329/a2ace696-76e1-443b-b00d-00bc69533fdd)
+  
 - **Spotify Integration**: Directly connect to Spotify to explore and play recommended music.
 
 ## Tech Stack
