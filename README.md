@@ -42,7 +42,7 @@ Here's how you can enjoy AmBeyoncé:
 ### Steps:
 1. Clone this repository to your local machine:
    ```shell
-   $ git clone https://github.com/yourusername/ambeyonce.git
+   $ git clone https://github.com/amcrochet3/ambeyonce.git
 
 2. Navigate to the project directory:
    ```shell
