@@ -21,7 +21,6 @@ Here's how you can enjoy AmBeyoncé:
 
 - Python
 - Django
-- JavaScript
 - jQuery
 - HTML
 - CSS
